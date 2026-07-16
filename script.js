@@ -82,3 +82,20 @@ document.querySelectorAll("#gallery,#message").forEach(section => {
     observer.observe(section);
 
 });
+// =========================
+// Cinematic Intro
+// =========================
+
+const enterBtn = document.getElementById("enterSite");
+
+if(enterBtn){
+
+    enterBtn.addEventListener("click",()=>{
+
+        document.getElementById("intro").style.display="none";
+
+        document.getElementById("mainWebsite").style.display="block";
+
+    });
+
+}
