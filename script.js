@@ -8,20 +8,25 @@ const typing = document.getElementById("typing");
 let i = 0;
 
 function typeWriter() {
-
-    if (i < text.length) {
-
+    if (typing && i < text.length) {
         typing.innerHTML += text.charAt(i);
-
         i++;
-
         setTimeout(typeWriter, 120);
-
     }
-
 }
 
+// =========================
+// Page Load
+// =========================
+
 window.onload = () => {
+
+    // প্রথমে Main Website লুকিয়ে রাখবে
+    const mainWebsite = document.getElementById("mainWebsite");
+
+    if (mainWebsite) {
+        mainWebsite.style.display = "none";
+    }
 
     typeWriter();
 
@@ -32,27 +37,26 @@ window.onload = () => {
 // =========================
 
 const button = document.getElementById("startBtn");
-
 const gallery = document.getElementById("gallery");
-
 const message = document.getElementById("message");
 
-button.addEventListener("click", () => {
+if (button) {
 
-    gallery.classList.remove("hidden");
+    button.addEventListener("click", () => {
 
-    message.classList.remove("hidden");
+        gallery.classList.remove("hidden");
+        message.classList.remove("hidden");
 
-    gallery.scrollIntoView({
-
-        behavior: "smooth"
+        gallery.scrollIntoView({
+            behavior: "smooth"
+        });
 
     });
 
-});
+}
 
 // =========================
-// Simple Fade Animation
+// Fade Animation
 // =========================
 
 const observer = new IntersectionObserver((entries) => {
@@ -62,7 +66,6 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
 
             entry.target.style.opacity = "1";
-
             entry.target.style.transform = "translateY(0)";
 
         }
@@ -74,27 +77,39 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll("#gallery,#message").forEach(section => {
 
     section.style.opacity = "0";
-
     section.style.transform = "translateY(50px)";
-
     section.style.transition = "all 1s ease";
 
     observer.observe(section);
 
 });
+
 // =========================
 // Cinematic Intro
 // =========================
 
 const enterBtn = document.getElementById("enterSite");
+const intro = document.getElementById("intro");
+const mainWebsite = document.getElementById("mainWebsite");
 
-if(enterBtn){
+if (enterBtn) {
 
-    enterBtn.addEventListener("click",()=>{
+    enterBtn.addEventListener("click", () => {
 
-        document.getElementById("intro").style.display="none";
+        intro.style.transition = "opacity 1s ease";
+        intro.style.opacity = "0";
 
-        document.getElementById("mainWebsite").style.display="block";
+        setTimeout(() => {
+
+            intro.style.display = "none";
+
+            mainWebsite.style.display = "block";
+
+            typing.innerHTML = "";
+            i = 0;
+            typeWriter();
+
+        }, 1000);
 
     });
 
