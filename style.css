@@ -1,0 +1,274 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top,#142850,#050816 70%);
+    z-index:-2;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+    background-size:50px 50px;
+    opacity:.4;
+    animation:starsMove 80s linear infinite;
+}
+
+@keyframes starsMove{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-1000px);
+}
+
+}
+
+/* =========================
+ HERO
+========================= */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+.content{
+
+max-width:850px;
+
+padding:50px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+box-shadow:0 0 40px rgba(255,255,255,.15);
+
+}
+
+.top-text{
+
+font-size:18px;
+
+letter-spacing:3px;
+
+color:#9fd3ff;
+
+margin-bottom:25px;
+
+}
+
+h1{
+
+font-size:65px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+opacity:.85;
+
+margin-bottom:40px;
+
+}
+
+/* =========================
+BUTTON
+========================= */
+
+button{
+
+padding:18px 45px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:60px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#00b4ff,#6a5cff);
+
+color:white;
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px #00b4ff;
+
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+section{
+
+padding:90px 8%;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.photo{
+
+height:260px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:24px;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.12);
+
+}
+
+.photo:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 30px rgba(255,255,255,.25);
+
+}
+
+/* =========================
+MESSAGE
+========================= */
+
+#message{
+
+text-align:center;
+
+}
+
+#message h2{
+
+font-size:45px;
+
+margin-bottom:30px;
+
+}
+
+#message p{
+
+font-size:22px;
+
+line-height:1.9;
+
+max-width:850px;
+
+margin:auto;
+
+opacity:.9;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+h1{
+
+font-size:40px;
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
